@@ -10,8 +10,8 @@ namespace slgLib
     {
         namespace BehaviourTree
         {
-            /*Sequence module that execute each of its childs until one fails.
-            Return a fail status if one has failed. Success if not.*/
+            /*Sequence module that executes each of its childs until one fails.
+            Return a fail status if one failed. Success if not.*/
             class SequenceCModule : public ComposedModule
             {
             public:
