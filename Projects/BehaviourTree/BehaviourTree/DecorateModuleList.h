@@ -3,7 +3,8 @@
 
 
 #include "InvertDModule.h"
-#include "DecorationModule.h"
+#include "FailDModule.h"
+#include "SuccessDModule.h"
 
 
 #endif //!DECORATEMODULELIST_H_INCLUDED
