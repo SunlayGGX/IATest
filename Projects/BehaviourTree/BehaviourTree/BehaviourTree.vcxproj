@@ -142,11 +142,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ComposedModule.h" />
+    <ClInclude Include="DecorationModule.h" />
     <ClInclude Include="IModule.h" />
-    <ClInclude Include="Blackboard.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BlackboardTest.cpp" />
+    <ClCompile Include="DecorationModule.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
