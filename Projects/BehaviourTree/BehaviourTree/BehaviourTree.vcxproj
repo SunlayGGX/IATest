@@ -142,11 +142,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ActionModule.h" />
     <ClInclude Include="ComposedModule.h" />
     <ClInclude Include="ComposedModuleList.h" />
     <ClInclude Include="DecorateModuleList.h" />
     <ClInclude Include="DecorationModule.h" />
     <ClInclude Include="FailDModule.h" />
+    <ClInclude Include="GeneralActionModule.h" />
     <ClInclude Include="ICanBeParentModule.h" />
     <ClInclude Include="IModule.h" />
     <ClInclude Include="InvertDModule.h" />
