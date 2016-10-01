@@ -17,6 +17,12 @@ namespace slgLib
                 IModule& m_Child;
 
             public:
+                DecorationModule() = delete;
+
+                DecorationModule(IModule& child) noexcept : 
+                    m_Child{child}
+                {}
+
                 virtual IModule* child(size_t index)   const noexcept
                 {
                     return &m_Child;

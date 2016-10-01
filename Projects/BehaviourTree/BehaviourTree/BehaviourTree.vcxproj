@@ -143,11 +143,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ComposedModule.h" />
+    <ClInclude Include="DecorateModuleList.h" />
     <ClInclude Include="DecorationModule.h" />
+    <ClInclude Include="FailDModule.h" />
     <ClInclude Include="IModule.h" />
+    <ClInclude Include="InvertDModule.h" />
+    <ClInclude Include="LoopDModule.h" />
+    <ClInclude Include="SuccessDModule.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DecorationModule.cpp" />
+    <ClCompile Include="FailDModule.cpp" />
+    <ClCompile Include="InvertDModule.cpp" />
+    <ClCompile Include="LoopDModule.cpp" />
+    <ClCompile Include="SuccessDModule.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
