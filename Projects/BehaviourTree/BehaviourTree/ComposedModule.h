@@ -6,8 +6,6 @@
 #include <vector>
 
 
-#include <vector>
-
 namespace slgLib
 {
     namespace IAModule
