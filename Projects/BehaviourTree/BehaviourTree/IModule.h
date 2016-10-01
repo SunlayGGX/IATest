@@ -8,27 +8,44 @@ namespace slgLib
     {
         namespace BehaviourTree
         {
-            namespace moduleType
+            namespace generalModule
             {
-                enum returnValue
+                /*Return type of the module execution*/
+                enum returnState
                 {
                     Fail        = 0,
                     Success     = 1,
                     InProcess   = 2
                 };
+
+                /*
+                The type of the module : 
+                Is it a composed module ?
+                Is it an action module ?
+                Or a decoration module ?
+                */
+                enum moduleType
+                {
+                    Composed,
+                    Decoration,
+                    Action
+                };
             }
 
 
+            /*Interface for all behaviour tree modules*/
             class IModule
             {
             public:
-                virtual IModule* child(std::size_t index)   const noexcept = 0;
-                virtual std::size_t connectionCount()       const noexcept = 0;
+                virtual IModule* child(size_t index)   const noexcept = 0;
+                virtual size_t connectionCount()       const noexcept = 0;
+
+                virtual generalModule::moduleType getModuleType() const noexcept = 0;
 
                 virtual void connect(IModule* otherModule)      = 0;
                 virtual void disconnect(IModule* otherModule)   = 0;
 
-                virtual returnValue::returnType operator()() = 0;
+                virtual generalModule::returnState operator()() = 0;
             };
         }
     }
