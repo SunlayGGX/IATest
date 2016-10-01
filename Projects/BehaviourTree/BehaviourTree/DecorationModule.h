@@ -23,9 +23,9 @@ namespace slgLib
                     m_Child{child}
                 {}
 
-                virtual IModule* child(size_t index)   const noexcept
+                virtual IModule& child(size_t index)   const noexcept
                 {
-                    return &m_Child;
+                    return m_Child;
                 }
 
                 virtual size_t connectionCount()       const noexcept
@@ -38,13 +38,13 @@ namespace slgLib
                     return generalModule::Decoration;
                 }
 
-                virtual void connect(IModule* otherModule)
+                virtual void connect(IModule& otherModule)
                 {
-                    m_Child = *otherModule;
+                    m_Child = otherModule;
                 }
 
                 /*Do nothing because a decorated module exists only when connected*/
-                void disconnect(IModule* otherModule) 
+                void disconnect(IModule& otherModule) 
                 {}
 
                 virtual generalModule::returnState operator()() = 0;

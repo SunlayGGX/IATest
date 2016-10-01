@@ -19,6 +19,11 @@ namespace slgLib
 
 
             public:
+                virtual IModule& child(size_t index) const noexcept { return m_childs[index]; }
+
+                /*Return the number of child this module is connected to*/
+                virtual size_t connectionCount() const noexcept { return m_childs.size(); }
+
                 /*Return the type of module it is. Here, it is always composed*/
                 generalModule::moduleType getModuleType() const noexcept { return generalModule::Composed; }
             };

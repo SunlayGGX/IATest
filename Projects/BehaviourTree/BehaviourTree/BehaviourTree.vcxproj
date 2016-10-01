@@ -143,12 +143,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ComposedModule.h" />
+    <ClInclude Include="ComposedModuleList.h" />
     <ClInclude Include="DecorateModuleList.h" />
     <ClInclude Include="DecorationModule.h" />
     <ClInclude Include="FailDModule.h" />
     <ClInclude Include="IModule.h" />
     <ClInclude Include="InvertDModule.h" />
     <ClInclude Include="LoopDModule.h" />
+    <ClInclude Include="SequenceCModule.h" />
     <ClInclude Include="SuccessDModule.h" />
   </ItemGroup>
   <ItemGroup>
