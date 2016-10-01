@@ -10,7 +10,7 @@ namespace slgLib
     {
         namespace BehaviourTree
         {
-            /*Interface for all behaviour tree modules*/
+            /*Interface for all decoration behaviour tree modules*/
             class DecorationModule : public IModule
             {
             protected:
@@ -37,7 +37,9 @@ namespace slgLib
                     m_Child = *otherModule;
                 }
 
-                virtual void disconnect(IModule* otherModule);
+                /*Do nothing because a decorated module exists only when connected*/
+                void disconnect(IModule* otherModule) 
+                {}
 
                 virtual generalModule::returnState operator()() = 0;
             };
