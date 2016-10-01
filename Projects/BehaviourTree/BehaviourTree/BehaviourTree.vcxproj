@@ -148,10 +148,12 @@
     <ClInclude Include="FailDModule.h" />
     <ClInclude Include="IModule.h" />
     <ClInclude Include="InvertDModule.h" />
+    <ClInclude Include="SuccessDModule.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FailDModule.cpp" />
     <ClCompile Include="InvertDModule.cpp" />
+    <ClCompile Include="SuccessDModule.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

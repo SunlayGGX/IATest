@@ -33,12 +33,18 @@
     <ClInclude Include="FailDModule.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="SuccessDModule.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InvertDModule.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="FailDModule.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="SuccessDModule.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
