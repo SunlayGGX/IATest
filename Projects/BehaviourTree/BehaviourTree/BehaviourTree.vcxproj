@@ -154,6 +154,7 @@
     <ClInclude Include="SuccessDModule.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ComposedModule.cpp" />
     <ClCompile Include="FailDModule.cpp" />
     <ClCompile Include="InvertDModule.cpp" />
     <ClCompile Include="LoopDModule.cpp" />
