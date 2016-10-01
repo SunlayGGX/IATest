@@ -2,6 +2,8 @@
 #define COMPOSEDMODULELIST_H_INCLUDED
 
 
+#include "SequenceCModule.h"
+#include "SelectCModule.h"
 
 
 
