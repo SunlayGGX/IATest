@@ -3,6 +3,8 @@
 
 #include "IModule.h"
 
+#include <vector>
+
 namespace slgLib
 {
     namespace IAModule
@@ -12,6 +14,10 @@ namespace slgLib
             /*Interface for all composed behaviour tree modules*/
             class ComposedModule : public IModule
             {
+            protected:
+                std::vector<IModule&> m_childs;
+
+
             public:
                 /*Return the type of module it is. Here, it is always composed*/
                 generalModule::moduleType getModuleType() const noexcept { return generalModule::Composed; }
