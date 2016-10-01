@@ -5,6 +5,7 @@
 #include "InvertDModule.h"
 #include "FailDModule.h"
 #include "SuccessDModule.h"
+#include "LoopDModule.h"
 
 
 #endif //!DECORATEMODULELIST_H_INCLUDED
