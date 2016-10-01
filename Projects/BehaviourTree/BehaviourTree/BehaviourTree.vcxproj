@@ -143,6 +143,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="IModule.h" />
+    <ClInclude Include="Blackboard.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BlackboardTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
