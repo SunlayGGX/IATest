@@ -1,7 +1,7 @@
 #ifndef DECORATIONMODULE_H_INCLUDED
 #define DECORATIONMODULE_H_INCLUDED
 
-#include "IModule.h"
+#include "ICanBeParentModule.h"
 
 
 namespace slgLib
@@ -11,7 +11,7 @@ namespace slgLib
         namespace BehaviourTree
         {
             /*Interface for all decoration behaviour tree modules*/
-            class DecorationModule : public IModule
+            class DecorationModule : public ICanBeParentModule
             {
             protected:
                 IModule& m_Child;
@@ -44,8 +44,10 @@ namespace slgLib
                 }
 
                 /*Do nothing because a decorated module exists only when connected*/
-                void disconnect(IModule& otherModule) 
-                {}
+                void disconnect(IModule& otherModule) {}
+
+                /*Do nothing because a decorated module exists only when connected*/
+                virtual void disconnect(size_t index) {}
 
                 virtual generalModule::returnState operator()() = 0;
             };
