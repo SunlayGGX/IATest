@@ -19,34 +19,47 @@ int main()
     myTree.getRoot().connect(SelectCModule());
 
 
+
+
+    auto sayA = []() {
+        cout << "A";
+        return generalModule::returnState::Success;
+    };
+
+    auto sayB = []() {
+        cout << "B";
+        return generalModule::returnState::Success;
+    };
+
+    auto sayC = []() {
+        cout << "C";
+        return generalModule::returnState::Success;
+    };
+
+    auto sayD = []() {
+        cout << "D";
+        return generalModule::returnState::Success;
+    };
+
+
+
+
     reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(0)).connect(
-        GeneralActionModule([]() {
-            cout << "A";
-            return generalModule::returnState::Success;
-        })
+        GeneralActionModule<decltype(sayA)>(sayA)
     );
 
     reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(0)).connect(
-        GeneralActionModule([]() {
-            cout << "B";
-            return generalModule::returnState::Success;
-        })
+        GeneralActionModule<decltype(sayB)>(sayB)
     );
 
     reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(1)).connect(
         FailDModule(
-            GeneralActionModule([]() {
-                cout << "C";
-                return generalModule::returnState::Fail;
-            })
+            GeneralActionModule<decltype(sayC)>(sayC)
         )
     );
 
     reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(1)).connect(
-        GeneralActionModule([]() {
-            cout << "D";
-            return generalModule::returnState::Success;
-        })
+        GeneralActionModule<decltype(sayD)>(sayD)
     );
 
     myTree();
