@@ -21,20 +21,45 @@ namespace slgLib
             class BehaviorTreeObject : public IModule
             {
             private:
-                ICanBeParentModule& m_Root;
+                IModule& m_Root;
 
 
             public:
-                BehaviorTreeObject(ICanBeParentModule& root) noexcept :
+                BehaviorTreeObject(IModule& root) noexcept :
                     m_Root{root}
                 {}
 
 
-                ICanBeParentModule& getRoot() noexcept
+                IModule& getRoot() noexcept
                 {
                     return m_Root;
                 }
 
+
+                virtual IModule& child(size_t index)   noexcept
+                {
+                    return m_Root.child(index);
+                }
+
+                virtual size_t connectionCount()       const noexcept
+                {
+                    return m_Root.connectionCount();
+                }
+
+                virtual void connect(IModule& otherModule)
+                {
+                    m_Root.connect(otherModule);
+                }
+
+                virtual void disconnect(IModule& otherModule)
+                {
+                    m_Root.disconnect(otherModule);
+                }
+
+                virtual void disconnect(size_t index)
+                {
+                    m_Root.disconnect(index);
+                }
 
 
                 generalModule::moduleType getModuleType() const noexcept

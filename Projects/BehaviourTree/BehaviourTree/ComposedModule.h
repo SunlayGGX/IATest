@@ -1,7 +1,7 @@
 #ifndef COMPOSEDMODULE_H_INCLUDED
 #define COMPOSEDMODULE_H_INCLUDED
 
-#include "ICanBeParentModule.h"
+#include "IModule.h"
 
 #include <vector>
 
@@ -13,7 +13,7 @@ namespace slgLib
         namespace BehaviourTree
         {
             /*Interface for all composed behaviour tree modules*/
-            class ComposedModule : public ICanBeParentModule
+            class ComposedModule : public IModule
             {
             protected:
                 std::vector<IModule*> m_childs;

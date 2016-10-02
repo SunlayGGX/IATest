@@ -150,7 +150,6 @@
     <ClInclude Include="DecorationModule.h" />
     <ClInclude Include="FailDModule.h" />
     <ClInclude Include="GeneralActionModule.h" />
-    <ClInclude Include="ICanBeParentModule.h" />
     <ClInclude Include="IModule.h" />
     <ClInclude Include="InvertDModule.h" />
     <ClInclude Include="LoopDModule.h" />
@@ -159,6 +158,7 @@
     <ClInclude Include="SuccessDModule.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ActionModule.cpp" />
     <ClCompile Include="ComposedModule.cpp" />
     <ClCompile Include="ExampleBehaviourTree.cpp" />
     <ClCompile Include="FailDModule.cpp" />

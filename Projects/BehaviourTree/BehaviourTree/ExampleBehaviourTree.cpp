@@ -16,9 +16,9 @@ int main()
 
     BehaviorTreeObject myTree(SequenceCModule::SequenceCModule());
 
-    myTree.getRoot().connect(SequenceCModule());
+    myTree.connect(SequenceCModule());
 
-    myTree.getRoot().connect(SelectCModule());
+    myTree.connect(SelectCModule());
 
 
 
@@ -45,22 +45,21 @@ int main()
 
 
 
-
-    reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(0)).connect(
+    myTree.child(0).connect(
         GeneralActionModule<decltype(sayA)>(sayA)
     );
 
-    reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(0)).connect(
+    myTree.child(0).connect(
         GeneralActionModule<decltype(sayB)>(sayB)
     );
 
-    reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(1)).connect(
+    myTree.child(1).connect(
         FailDModule(
             GeneralActionModule<decltype(sayC)>(sayC)
         )
     );
 
-    reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(1)).connect(
+    myTree.child(1).connect(
         GeneralActionModule<decltype(sayD)>(sayD)
     );
 

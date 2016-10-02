@@ -48,9 +48,6 @@
     <ClInclude Include="SequenceCModule.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ICanBeParentModule.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="SelectCModule.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -88,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="ExampleBehaviourTree.cpp">
       <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionModule.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
