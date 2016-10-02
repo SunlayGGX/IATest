@@ -11,8 +11,10 @@ using std::endl;
 
 int main()
 {
-    SequenceCModule* sequence = new SequenceCModule();
-    BehaviorTreeObject myTree(*sequence);
+    /*SequenceCModule* sequence = new SequenceCModule();
+    BehaviorTreeObject myTree(*sequence);*/
+
+    BehaviorTreeObject myTree(SequenceCModule::SequenceCModule());
 
     myTree.getRoot().connect(SequenceCModule());
 
@@ -64,7 +66,7 @@ int main()
 
     myTree();
 
-    delete sequence;
+    //delete sequence;
     cout << endl;
 
     system("pause");
