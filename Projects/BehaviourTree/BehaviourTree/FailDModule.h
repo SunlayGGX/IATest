@@ -14,6 +14,11 @@ namespace slgLib
             /*Module that execute its child and always return fail, whatever the result is*/
             class FailDModule : public DecorationModule
             {
+            public:
+                FailDModule(IModule& child) :
+                    DecorationModule{ child }
+                {}
+
                 generalModule::returnState operator()();
             };
         }

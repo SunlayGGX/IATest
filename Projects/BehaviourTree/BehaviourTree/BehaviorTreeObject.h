@@ -8,6 +8,8 @@
 #include "GeneralActionModule.h"
 
 
+#include <algorithm>
+
 
 namespace slgLib
 {
@@ -30,6 +32,38 @@ namespace slgLib
                 {}
 
 
+                IModule& getRoot() noexcept
+                {
+                    return m_Root;
+                }
+
+
+                virtual IModule& child(size_t index)   noexcept
+                {
+                    return m_Root.child(index);
+                }
+
+                virtual size_t connectionCount()       const noexcept
+                {
+                    return m_Root.connectionCount();
+                }
+
+                virtual void connect(IModule& otherModule)
+                {
+                    m_Root.connect(otherModule);
+                }
+
+                virtual void disconnect(IModule& otherModule)
+                {
+                    m_Root.disconnect(otherModule);
+                }
+
+                virtual void disconnect(size_t index)
+                {
+                    m_Root.disconnect(index);
+                }
+
+
                 generalModule::moduleType getModuleType() const noexcept
                 {
                     return m_Root.getModuleType();
@@ -38,6 +72,23 @@ namespace slgLib
                 generalModule::returnState operator()()
                 {
                     return m_Root();
+                }
+
+                template<class ... IntegerIndex>
+                IModule* operator()(IntegerIndex ... indexes)
+                {
+                    IModule* iteratorMod= &m_Root;
+
+                    size_t argument[] = { indexes... };
+
+                    std::for_each(std::begin(argument),
+                                  std::end(argument),
+                                  [&iteratorMod](size_t index){
+                                      iteratorMod = &iteratorMod->child(index);
+                                  }
+                    );
+                    
+                    return iteratorMod;
                 }
             };
         }

@@ -10,36 +10,45 @@ namespace slgLib
     {
         namespace BehaviourTree
         {
-            /*General Action when we want to create an action easily and quickly without thinking too much*/
-            template<class Foncteur>
+            /*
+            General Action when we want to create an action easily and quickly without thinking too much
+            If you want to pass a lambda, use decltype()
+            */
+            template <class Functor>
             class GeneralActionModule : public ActionModule
             {
             private:
-                Foncteur m_Foncteur;
+                Functor m_Functor;
 
 
             public:
                 GeneralActionModule() = delete;
 
-                GeneralActionModule(const Foncteur& fonct) noexcept :
-                    m_Foncteur{ fonct }
-                {}
-
                 /*
-                Set the foncteur to use. 
+                Construct the module along with the functor to use.
                 This foncteur :
                 - MUST Return a generalModule::returnState variable
                 - doesn't have any parameter in the operator()
                 -> no parameter between () the lambda. Use the capture...
-                */
-                void setAnActionModule(const Foncteur& fonct) const noexcept
-                {
-                    m_Foncteur = fonct;
+
+
+                To create with a lambda : 
+                auto lambdaM = [capture](){ 
+                    TODO
+                    return generalModule::returnState::whatever;
                 }
+
+                ...
+
+                GeneralActionModule<decltype(lambdaM)>(lambdaM);
+                */
+                GeneralActionModule(const Functor& functor) noexcept :
+                m_Functor{ functor }
+                {}
 
                 generalModule::returnState operator()()
                 {
-                    return m_Foncteur();
+                    return m_Functor();
                 }
             };
         }

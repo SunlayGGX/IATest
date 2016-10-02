@@ -143,13 +143,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ActionModule.h" />
+    <ClInclude Include="BehaviorTreeObject.h" />
     <ClInclude Include="ComposedModule.h" />
     <ClInclude Include="ComposedModuleList.h" />
     <ClInclude Include="DecorateModuleList.h" />
     <ClInclude Include="DecorationModule.h" />
     <ClInclude Include="FailDModule.h" />
     <ClInclude Include="GeneralActionModule.h" />
-    <ClInclude Include="ICanBeParentModule.h" />
     <ClInclude Include="IModule.h" />
     <ClInclude Include="InvertDModule.h" />
     <ClInclude Include="LoopDModule.h" />
@@ -158,7 +158,9 @@
     <ClInclude Include="SuccessDModule.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ActionModule.cpp" />
     <ClCompile Include="ComposedModule.cpp" />
+    <ClCompile Include="ExampleBehaviourTree.cpp" />
     <ClCompile Include="FailDModule.cpp" />
     <ClCompile Include="InvertDModule.cpp" />
     <ClCompile Include="LoopDModule.cpp" />

@@ -1,7 +1,7 @@
 #ifndef DECORATIONMODULE_H_INCLUDED
 #define DECORATIONMODULE_H_INCLUDED
 
-#include "ICanBeParentModule.h"
+#include "IModule.h"
 
 
 namespace slgLib
@@ -11,7 +11,7 @@ namespace slgLib
         namespace BehaviourTree
         {
             /*Interface for all decoration behaviour tree modules*/
-            class DecorationModule : public ICanBeParentModule
+            class DecorationModule : public IModule
             {
             protected:
                 IModule& m_Child;
@@ -23,7 +23,7 @@ namespace slgLib
                     m_Child{child}
                 {}
 
-                virtual IModule& child(size_t index)   const noexcept
+                virtual IModule& child(size_t index)   noexcept
                 {
                     return m_Child;
                 }

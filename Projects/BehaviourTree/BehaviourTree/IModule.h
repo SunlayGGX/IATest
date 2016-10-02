@@ -40,6 +40,14 @@ namespace slgLib
                 virtual generalModule::moduleType getModuleType() const noexcept = 0;
 
                 virtual generalModule::returnState operator()() = 0;
+
+                virtual IModule& child(size_t index)   = 0;
+                virtual size_t connectionCount()       const noexcept = 0;
+
+                virtual void connect(IModule& otherModule) = 0;
+
+                virtual void disconnect(IModule& otherModule) = 0;
+                virtual void disconnect(size_t index) = 0;
             };
         }
     }

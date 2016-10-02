@@ -1,7 +1,7 @@
 #ifndef COMPOSEDMODULE_H_INCLUDED
 #define COMPOSEDMODULE_H_INCLUDED
 
-#include "ICanBeParentModule.h"
+#include "IModule.h"
 
 #include <vector>
 
@@ -13,15 +13,15 @@ namespace slgLib
         namespace BehaviourTree
         {
             /*Interface for all composed behaviour tree modules*/
-            class ComposedModule : public ICanBeParentModule
+            class ComposedModule : public IModule
             {
             protected:
-                std::vector<IModule&> m_childs;
+                std::vector<IModule*> m_childs;
 
 
             public:
                 /*return its child at the specified index*/
-                virtual IModule& child(size_t index) const noexcept { return m_childs[index]; }
+                virtual IModule& child(size_t index) noexcept { return *m_childs[index]; }
 
                 /*Return the number of child this module is connected to*/
                 virtual size_t connectionCount() const noexcept { return m_childs.size(); }
@@ -30,7 +30,7 @@ namespace slgLib
                 generalModule::moduleType getModuleType() const noexcept { return generalModule::Composed; }
 
                 /*Connect to a module child at the end of the child list*/
-                virtual void connect(IModule& otherModule) { m_childs.push_back(otherModule); }
+                virtual void connect(IModule& otherModule) { m_childs.push_back(&otherModule); }
 
                 /*Disconnect from the specified child*/
                 virtual void disconnect(IModule& otherModule);
