@@ -12,6 +12,11 @@ namespace slgLib
             /*Module that invert the result*/
             class InvertDModule : public DecorationModule
             {
+            public:
+                InvertDModule(IModule& child) :
+                    DecorationModule{child}
+                {}
+
                 generalModule::returnState operator()();
             };
         }

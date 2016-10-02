@@ -26,7 +26,7 @@ namespace slgLib
                     m_IterationCount{ countLoop }
                 {}
 
-                virtual generalModule::returnState operator()() = 0;
+                generalModule::returnState operator()();
             };
         }
     }

@@ -16,31 +16,33 @@ int main()
 
     myTree.getRoot().connect(SequenceCModule());
 
-    myTree.getRoot().connect(SequenceCModule());
+    myTree.getRoot().connect(SelectCModule());
 
 
-    dynamic_cast<SequenceCModule&>(dynamic_cast<SequenceCModule&>(myTree.getRoot()).child(0)).connect(
+    reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(0)).connect(
         GeneralActionModule([]() {
             cout << "A";
             return generalModule::returnState::Success;
         })
     );
 
-    dynamic_cast<SequenceCModule&>(dynamic_cast<SequenceCModule&>(myTree.getRoot()).child(0)).connect(
+    reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(0)).connect(
         GeneralActionModule([]() {
             cout << "B";
             return generalModule::returnState::Success;
         })
     );
 
-    dynamic_cast<SequenceCModule&>(dynamic_cast<SequenceCModule&>(myTree.getRoot()).child(1)).connect(
-        GeneralActionModule([]() {
-            cout << "C";
-            return generalModule::returnState::Success;
-        })
+    reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(1)).connect(
+        FailDModule(
+            GeneralActionModule([]() {
+                cout << "C";
+                return generalModule::returnState::Fail;
+            })
+        )
     );
 
-    dynamic_cast<SequenceCModule&>(dynamic_cast<SequenceCModule&>(myTree.getRoot()).child(1)).connect(
+    reinterpret_cast<SequenceCModule&>(reinterpret_cast<SequenceCModule&>(myTree.getRoot()).child(1)).connect(
         GeneralActionModule([]() {
             cout << "D";
             return generalModule::returnState::Success;
@@ -50,4 +52,7 @@ int main()
     myTree();
 
     delete sequence;
+    cout << endl;
+
+    system("pause");
 }
