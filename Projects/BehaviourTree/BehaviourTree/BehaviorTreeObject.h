@@ -21,13 +21,20 @@ namespace slgLib
             class BehaviorTreeObject : public IModule
             {
             private:
-                IModule& m_Root;
+                ICanBeParentModule& m_Root;
 
 
             public:
-                BehaviorTreeObject(IModule& root) noexcept :
+                BehaviorTreeObject(ICanBeParentModule& root) noexcept :
                     m_Root{root}
                 {}
+
+
+                ICanBeParentModule& getRoot() noexcept
+                {
+                    return m_Root;
+                }
+
 
 
                 generalModule::moduleType getModuleType() const noexcept

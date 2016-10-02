@@ -11,17 +11,16 @@ namespace slgLib
         namespace BehaviourTree
         {
             /*General Action when we want to create an action easily and quickly without thinking too much*/
-            template<class Foncteur>
             class GeneralActionModule : public ActionModule
             {
             private:
-                Foncteur m_Foncteur;
+                generalModule::returnState (*m_Foncteur)();
 
 
             public:
                 GeneralActionModule() = delete;
 
-                GeneralActionModule(const Foncteur& fonct) noexcept :
+                GeneralActionModule(generalModule::returnState(*fonct)()) noexcept :
                     m_Foncteur{ fonct }
                 {}
 
@@ -32,7 +31,7 @@ namespace slgLib
                 - doesn't have any parameter in the operator()
                 -> no parameter between () the lambda. Use the capture...
                 */
-                void setAnActionModule(const Foncteur& fonct) const noexcept
+                void setAnActionModule(generalModule::returnState(*fonct)()) noexcept
                 {
                     m_Foncteur = fonct;
                 }

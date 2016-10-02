@@ -7,7 +7,7 @@ generalModule::returnState SequenceCModule::operator()()
 {
     for (size_t iter = 0; iter < m_childs.size(); ++iter)
     {
-        if (m_childs[iter]() == generalModule::returnState::Fail)
+        if ((*m_childs[iter])() == generalModule::returnState::Fail)
         {
             return generalModule::returnState::Fail;
         }

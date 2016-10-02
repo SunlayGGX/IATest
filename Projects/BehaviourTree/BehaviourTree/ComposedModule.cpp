@@ -9,7 +9,7 @@ void ComposedModule::disconnect(IModule& otherModule)
 {
     for (size_t iter = 0; iter < m_childs.size(); ++iter)
     {
-        if (&m_childs[iter] == &otherModule)
+        if (m_childs[iter] == &otherModule)
         {
             disconnect(iter);
             return;

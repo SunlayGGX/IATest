@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ActionModule.h" />
+    <ClInclude Include="BehaviorTreeObject.h" />
     <ClInclude Include="ComposedModule.h" />
     <ClInclude Include="ComposedModuleList.h" />
     <ClInclude Include="DecorateModuleList.h" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ComposedModule.cpp" />
+    <ClCompile Include="ExampleBehaviourTree.cpp" />
     <ClCompile Include="FailDModule.cpp" />
     <ClCompile Include="InvertDModule.cpp" />
     <ClCompile Include="LoopDModule.cpp" />

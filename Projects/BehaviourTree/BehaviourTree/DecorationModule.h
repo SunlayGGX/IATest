@@ -23,7 +23,7 @@ namespace slgLib
                     m_Child{child}
                 {}
 
-                virtual IModule& child(size_t index)   const noexcept
+                virtual IModule& child(size_t index)   noexcept
                 {
                     return m_Child;
                 }

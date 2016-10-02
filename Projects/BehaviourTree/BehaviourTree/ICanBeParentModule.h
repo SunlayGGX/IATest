@@ -15,7 +15,7 @@ namespace slgLib
             class ICanBeParentModule : public IModule
             {
             public:
-                virtual IModule& child(size_t index)   const noexcept = 0;
+                virtual IModule& child(size_t index)   noexcept       = 0;
                 virtual size_t connectionCount()       const noexcept = 0;
 
                 virtual void connect(IModule& otherModule) = 0;
