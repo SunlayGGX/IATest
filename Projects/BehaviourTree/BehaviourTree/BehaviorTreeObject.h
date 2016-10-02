@@ -8,6 +8,8 @@
 #include "GeneralActionModule.h"
 
 
+#include <algorithm>
+
 
 namespace slgLib
 {
@@ -70,6 +72,23 @@ namespace slgLib
                 generalModule::returnState operator()()
                 {
                     return m_Root();
+                }
+
+                template<class ... IntegerIndex>
+                IModule* operator()(IntegerIndex ... indexes)
+                {
+                    IModule* iteratorMod= &m_Root;
+
+                    size_t argument[] = { indexes... };
+
+                    std::for_each(std::begin(argument),
+                                  std::end(argument),
+                                  [&iteratorMod](size_t index){
+                                      iteratorMod = &iteratorMod->child(index);
+                                  }
+                    );
+                    
+                    return iteratorMod;
                 }
             };
         }

@@ -43,6 +43,21 @@ int main()
         return generalModule::returnState::Success;
     };
 
+    auto sayE = []() {
+        cout << "E";
+        return generalModule::returnState::Success;
+    };
+
+    auto sayBravo = []() {
+        cout << " Bravo ";
+        return generalModule::returnState::Success;
+    };
+
+    auto sayTestReussi = []() {
+        cout << " TestReussi !";
+        return generalModule::returnState::Success;
+    };
+
 
 
     myTree.child(0).connect(
@@ -60,8 +75,26 @@ int main()
     );
 
     myTree.child(1).connect(
-        GeneralActionModule<decltype(sayD)>(sayD)
+        FailDModule(
+            GeneralActionModule<decltype(sayD)>(sayD)
+        )
     );
+
+    myTree.connect(SequenceCModule());
+
+    myTree.child(2).connect(SequenceCModule());
+
+    myTree(2, 0)->connect(SequenceCModule());
+    myTree(2, 0, 0)->connect(InvertDModule(LoopDModule(SequenceCModule(), 2)));
+
+    myTree(2, 0, 0, 0, 0, 0)->connect(GeneralActionModule<decltype(sayE)>(sayE));
+
+    myTree(1)->connect(SequenceCModule());
+
+    myTree(1, 2)->connect(SequenceCModule());
+
+    myTree(1, 2, 0)->connect(GeneralActionModule<decltype(sayBravo)>(sayBravo));
+    myTree(1, 2, 0)->connect(GeneralActionModule<decltype(sayTestReussi)>(sayTestReussi));
 
     myTree();
 
